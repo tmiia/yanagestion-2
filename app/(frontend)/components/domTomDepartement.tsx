@@ -20,8 +20,8 @@ const DomTomDepartement = ({ className = "" }: DomTomDepartementProps) => {
 
   return (
     <div className={`grid-layout ${className}`}>
-      <small className="text-light-gray font-light text-xs col-start-1 text-end p-2.5">97</small>
-      <em className="text-light-gray font-light text-xs col-start-3 p-2.5">({domDepart})</em>
+      <small className="font-light text-xs col-start-1 text-end p-2.5">97</small>
+      <em className="font-light text-xs col-start-3 p-2.5">({domDepart})</em>
     </div>
   );
 };
