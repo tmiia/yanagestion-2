@@ -12,7 +12,7 @@ const Summary = ({ className, summary }: SummaryProps) => {
     return (
         <div className={classNames("flex flex-col w-full overflow-hidden", className)}>
         {summary.map((item, index) => (
-            <div key={index} className={classNames("flex items-baseline pr-2.5 gap-1 w-full min-w-0", currentActive === index ? "text-dark-gray" : "text-light-gray")}>
+            <div key={index} className={classNames("flex items-baseline pr-2.5 gap-1 w-full min-w-0", currentActive === index ? "text-dark-gray" : "text-gray")}>
             <span className="text-sm font-semibold whitespace-nowrap shrink-0">{item}</span>
             <span className="flex-1 overflow-hidden text-xs min-w-0 leading-px">
                 {"·".repeat(200)}

@@ -6,6 +6,7 @@ import { type SanityDocument } from "next-sanity";
 import Summary from "./summary";
 import DomTomDepartement from "./domTomDepartement";
 import DateComponent from "./date";
+import { useMemo } from "react";
 
 interface HeroProps {
   paragraphs: string[] | SanityDocument[];
@@ -16,6 +17,12 @@ const Hero = ({ paragraphs, summary }: HeroProps) => {
   const texts = paragraphs.length > 0 
     ? paragraphs 
     : ["ERROR: Avec Yanagestion gagnez du temps et concentrez-vous sur votre cœur de métier, nous nous occupons du reste.", "ERROR: Implantée au cœur des Antilles-Guyane, nous accompagnons les entrepreneurs avec des solutions adaptées à leurs besoins."];
+
+    const homePageTitle = "Yanagestion";
+    
+    const summaryWithTitle = useMemo(() => {
+      return [homePageTitle, ...summary];
+    }, [summary]);
 
   return (
     <section className="container-grid h-[400vh]">
@@ -29,7 +36,7 @@ const Hero = ({ paragraphs, summary }: HeroProps) => {
           </div>
         </hgroup>
 
-        <Summary summary={summary} className="col-span-2 md:col-span-1 row-start-3 self-end md:self-start pt-2.5" />
+        <Summary summary={summaryWithTitle} className="col-span-2 md:col-span-1 row-start-3 self-end md:self-start pt-2.5" />
         <DateComponent className="col-span-full row-start-1 self-start md:col-start-3 md:row-start-3 md:row-end-4 md:self-end pl-2.5 text-xs font-mono text-gray" />
       </div>
     </section>
