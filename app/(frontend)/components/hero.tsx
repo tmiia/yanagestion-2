@@ -4,6 +4,7 @@ import logoAnimation from "@/(frontend)/lotties/logo.json";
 import ReaderAnim from "./readerAnim";
 import { type SanityDocument } from "next-sanity";
 import Summary from "./summary";
+import DomTomDepartement from "./domTomDepartement";
 
 interface HeroProps {
   paragraphs: string[] | SanityDocument[];
@@ -19,12 +20,13 @@ const Hero = ({ paragraphs, summary }: HeroProps) => {
     <section className="container-grid h-[400vh]">
 
       <div className="fixed inset-0 container-grid">
-      <hgroup className="absolute top-1/2 translate-y-[-50%] w-full flex flex-col items-center justify-center px-2.5 md:px-20 lg:px-80 z-10">
-        <Lottie animationData={logoAnimation} loop={false} className="w-10 h-10" />
-        <div className="text-center text-2xl md:text-5xl font-bold w-full min-h-[calc((100dvh/4)-2.5em)]">
-          <ReaderAnim texts={texts.flat() as string[]} />
-        </div>
-      </hgroup>
+        <DomTomDepartement className="col-span-full row-start-1 row-end-2 self-end" />
+        <hgroup className="absolute top-1/2 translate-y-[-50%] w-full flex flex-col items-center justify-center px-2.5 md:px-20 lg:px-80 z-10">
+          <Lottie animationData={logoAnimation} loop={false} className="w-10 h-10" />
+          <div className="text-center text-2xl md:text-5xl font-bold w-full min-h-[calc((100dvh/4)-2.5em)]">
+            <ReaderAnim texts={texts.flat() as string[]} />
+          </div>
+        </hgroup>
 
         <Summary summary={summary} className="col-span-2 md:col-span-1 row-start-3 self-end md:self-start pt-2.5" />
       </div>
