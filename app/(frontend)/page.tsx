@@ -11,13 +11,14 @@ export default async function Home() {
   const folderData = await client.fetch<SanityDocument[]>(FOLDER_QUERY, {}, options);
 
   const paragraphs = readerData.map((doc: SanityDocument) => doc.paragraphs || []);
+  const summary = folderData.map((doc: SanityDocument) => doc.title || []);
 
   console.log(folderData);
 
   return (
     <main className="min-h-screen">
       <Background />
-      <Hero paragraphs={paragraphs} />
+      <Hero paragraphs={paragraphs} summary={summary} />
     </main>
   );
 }

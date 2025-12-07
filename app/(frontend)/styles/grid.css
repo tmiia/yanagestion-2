@@ -3,14 +3,14 @@
     --grid-columns: 3;
     --grid-rows: 3;
     --grid-gutter: 1px;
-    --container-padding: 1rem;
+    --container-padding: 0.625rem;
     --container-max-width: 100%;
 
     @media (min-width: 768px) {
       --grid-columns: 3;
       --grid-rows: 3;
       --grid-gutter: 1px;
-      --container-padding: 2rem;
+      --container-padding: 0.625rem;
     }
 
     @media (min-width: 1024px) {
