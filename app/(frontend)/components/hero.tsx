@@ -30,7 +30,7 @@ const Hero = ({ paragraphs, summary }: HeroProps) => {
         </hgroup>
 
         <Summary summary={summary} className="col-span-2 md:col-span-1 row-start-3 self-end md:self-start pt-2.5" />
-        <DateComponent className="col-start-3 row-start-3 row-end-4 self-end pl-2.5 text-xs font-mono text-gray" />
+        <DateComponent className="col-span-full row-start-1 self-start md:col-start-3 md:row-start-3 md:row-end-4 md:self-end pl-2.5 text-xs font-mono text-gray" />
       </div>
     </section>
   );
