@@ -1,3 +1,5 @@
+import FolderTip from "./svgs/folderTip";
+
 interface FolderContentType {
     title: string;
     content: string;
@@ -39,6 +41,7 @@ const Folder = ({ folder, index }: FolderProps) => {
         zIndex: index + 1,
       }}
     >
+      <FolderTip className="absolute top-0 left-0" dataIndex={index} />
         <header className="flex flex-col gap-8 justify-between">
             <strong className="text-2xl font-light">({folder.index + 2})</strong>
             <hgroup className="grid-layout gap-y-8!">
