@@ -6,7 +6,7 @@ interface FoldersProps {
 
 const Folders = ({ folders }: FoldersProps) => {
   return (
-    <section className="w-[80%] mx-auto">
+    <section className="w-[90%] md:w-[80%] mx-auto">
         {folders.sort((a: FolderType, b: FolderType) => a.order - b.order).map((folder, index) => (
             <Folder key={index} folder={folder} index={index} />
         ))}

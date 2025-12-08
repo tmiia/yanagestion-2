@@ -41,21 +41,21 @@ const Folder = ({ folder, index }: FolderProps) => {
         zIndex: index + 1,
       }}
     >
-      <FolderTip className="absolute top-0 left-0" dataIndex={index} />
+      <FolderTip className="absolute top-0 left-0 w-[82px] h-[24px] md:w-[123px] md:h-[36px]" dataIndex={index} />
         <header className="flex flex-col gap-8 justify-between">
             <strong className="text-2xl font-light">({folder.index + 2})</strong>
             <hgroup className="grid-layout gap-y-8!">
                 <h2 className="col-span-full grid grid-cols-5 uppercase">
-                  <span>{titleLeft}</span>
-                  <span>{titleRight}</span>
+                  <span className="col-span-2 col-start-1 md:col-span-1 md:col-start-1">{titleLeft}</span>
+                  <span className="col-span-2 col-start-4 md:col-span-1 md:col-start-2">{titleRight}</span>
                 </h2>
-                <p className="col-start-3 font-light uppercase">{folder.description}</p>
+                <p className="col-span-2 col-start-2 md:col-span-1 md:col-start-3 font-light uppercase">{folder.description}</p>
             </hgroup>
         </header>
 
-        <div className="grid grid-cols-5 gap-x-8">
+        <div className="grid md:grid-cols-5 gap-x-8">
             {folder.contents?.map((content, idx) => (  
-                <div key={idx} className={`col-start-${3 + idx}`}>
+                <div key={idx} className={`hidden md:block md:col-start-${3 + idx}`}>
                     <p>{content.content}</p>
                 </div>
             ))}
