@@ -7,6 +7,11 @@ export const folderType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'order',
+      type: 'number',
+      validation: (Rule) => Rule.required().min(1).max(3),
+    }),
+    defineField({
       name: 'title',
       type: 'string',
     }),

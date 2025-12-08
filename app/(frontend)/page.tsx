@@ -15,12 +15,11 @@ export default async function Home() {
   const summary = folderData.map((doc: SanityDocument) => doc.title || '');
   const folders = folderData.map((doc: SanityDocument, index: number) => ({
     index,
+    order: doc.order || 0,
     title: doc.title || '',
     description: doc.description || '',
     contents: doc.contents || []
   }));
-
-  console.log(folderData);
 
   return (
     <main className="relative min-h-screen">

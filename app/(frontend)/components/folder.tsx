@@ -5,6 +5,7 @@ interface FolderContentType {
 
 export interface FolderType {
     index: number;
+    order: number;
     title: string;
     description: string;
     contents: FolderContentType[];
