@@ -1,17 +1,23 @@
 import { useScroll, useTransform, motion } from "framer-motion";
+import { type RefObject } from "react";
 
 interface ReaderAnimProps {
   texts: string[];
   keepAllTextsDisplayed?: boolean;
   transitionBuffer?: number;
+  containerRef?: RefObject<HTMLElement | null>;
 }
 
 const ReaderAnim = ({ 
   texts, 
   keepAllTextsDisplayed = false,
-  transitionBuffer = 0.30 
+  transitionBuffer = 0.30,
+  containerRef
 }: ReaderAnimProps) => {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
 
   if (keepAllTextsDisplayed) {
     const totalLetters = texts.reduce((sum, text) => sum + text.length, 0);
