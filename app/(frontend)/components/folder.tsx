@@ -35,10 +35,11 @@ const Folder = ({ folder, index }: FolderProps) => {
   
   return (
     <section 
-      className="container-grid p-9! pr-6! pt-20! bg-foreground text-[var(--text-primary)] min-h-[80dvh] sticky mt-20 shadow-md flex flex-col justify-between font-mono text-xs"
+      className="container-grid p-9! pr-6! pt-20! bg-foreground text-[var(--text-primary)] min-h-[80dvh] sticky mt-20 flex flex-col justify-between font-mono text-xs"
       style={{ 
         top: `calc(5rem + ${topOffset}px)`,
         zIndex: index + 1,
+        boxShadow: '0 0 4px 0 rgba(93, 93, 93, 0.4)',
       }}
     >
       <FolderTip className="absolute top-0 left-0 w-[82px] h-[24px] md:w-[123px] md:h-[36px]" dataIndex={index} />
