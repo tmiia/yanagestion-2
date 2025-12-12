@@ -44,6 +44,7 @@ const Folder = ({ folder, index }: FolderProps) => {
   
   return (
     <section 
+      id={`folder-${index}`}
       className="container-grid p-9! pr-6! pt-20! bg-foreground text-[var(--text-primary)] min-h-[85dvh] md:min-h-[80dvh] sticky mt-20 flex flex-col justify-between font-mono text-xs"
       style={{ 
         top: `calc(var(--folder-top-base) + ${topOffset}px)`,

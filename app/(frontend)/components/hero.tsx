@@ -27,8 +27,7 @@ const Hero = ({ paragraphs, summary }: HeroProps) => {
     }, [summary]);
 
   return (
-    <section ref={containerRef} className="container-grid h-[400vh] mb-64">
-
+    <section ref={containerRef} className="container-grid h-[400vh] mb-64" id="hero">
       <div className="fixed inset-0 container-grid">
         <DomTomDepartement className="col-span-full row-start-1 row-end-2 self-end font-mono text-gray" />
         <hgroup className="absolute top-1/2 translate-y-[-50%] w-full flex flex-col items-center justify-center px-2.5 md:px-20 lg:px-80 z-10">
