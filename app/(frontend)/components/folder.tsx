@@ -1,4 +1,7 @@
+'use client';
+import { useEffect } from "react";
 import FolderTip from "./svgs/folderTip";
+import ContactForm from "./contactForm";
 
 interface FolderContentType {
     title: string;
@@ -11,6 +14,7 @@ export interface FolderType {
     title: string;
     description: string;
     contents: FolderContentType[];
+    addContactForm: boolean;
 }
 
 interface FolderProps {
@@ -32,6 +36,11 @@ const splitTitle = (title: string): [string, string] => {
 const Folder = ({ folder, index }: FolderProps) => {
   const topOffset = STACK_OFFSET;
   const [titleLeft, titleRight] = splitTitle(folder.title);
+
+  useEffect(() => {
+    console.log(folder.title, folder.order);
+    console.log(`addContactForm in ${folder.title} : ${folder.addContactForm}`);
+  }, []);
   
   return (
     <section 
@@ -54,18 +63,24 @@ const Folder = ({ folder, index }: FolderProps) => {
             </hgroup>
         </header>
 
-        <div className="grid md:grid-cols-5 gap-x-8">
+        <div className={`grid md:grid-cols-5 ${folder.addContactForm ? 'flex-1' : ''} gap-x-8`}>
             {folder.contents?.map((content, idx) => (  
                 <div key={idx} className={`hidden md:block md:col-start-${3 + idx}`}>
                     <p>{content.content}</p>
                 </div>
             ))}
 
-            <div className="col-start-1 col-span-2 self-end flex flex-col gap-y-4">
+            <div className={`col-start-1 col-span-2 self-end flex-col gap-y-4 ${folder.addContactForm ? 'hidden md:flex' : 'flex'}`}>
                 {folder.contents?.map((content, idx) => (  
                     <p key={idx} className="font-light uppercase">{content.title}</p>
                 ))}
             </div>
+
+            {folder.addContactForm && 
+            <div className="col-start-1 col-end-6 md:col-start-3 md:col-end-6 h-full flex flex-col gap-y-4">
+                <ContactForm />
+            </div>
+            }
         </div>
     </section>
   );

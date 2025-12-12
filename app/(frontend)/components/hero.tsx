@@ -1,7 +1,7 @@
 'use client';
 import Lottie from "lottie-react";
 import logoAnimation from "@/(frontend)/lotties/logo.json";
-import ReaderAnim from "./readerAnim";
+import ReaderAnim from "./animations/readerAnim";
 import { type SanityDocument } from "next-sanity";
 import Summary from "./summary";
 import DomTomDepartement from "./domTomDepartement";

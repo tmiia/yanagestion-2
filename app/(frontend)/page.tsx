@@ -18,7 +18,8 @@ export default async function Home() {
     order: doc.order || 0,
     title: doc.title || '',
     description: doc.description || '',
-    contents: doc.contents || []
+    contents: doc.contents || [],
+    addContactForm: doc.addContactForm || false
   }));
 
   return (

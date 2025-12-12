@@ -7,10 +7,12 @@ export const READER_QUERY = `*[
 export const FOLDER_QUERY = `*[
   _type == "folder"
 ]{
+  order,
   title,
   description,
   contents[]->{
     title,
     content
-  }
+  },
+  addContactForm
 }`;
