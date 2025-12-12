@@ -31,7 +31,7 @@ const DateComponent = ({ className = "" }: DateComponentProps) => {
 
   return (
     <div className={classNames("flex items-center justify-between", className)}>
-      <p className="capitalize">{day ?? "\u00A0"}</p>
+      <p className="capitalize hidden md:inline">{day ?? "\u00A0"}</p>
       <p>[{time ?? "--:--:--"}]</p>
     </div>
   );

@@ -7,6 +7,7 @@ import Summary from "./summary";
 import DomTomDepartement from "./domTomDepartement";
 import DateComponent from "./date";
 import { useMemo, useRef } from "react";
+import NavButton from "./navButton";
 
 interface HeroProps {
   paragraphs: string[] | SanityDocument[];
@@ -31,6 +32,7 @@ const Hero = ({ paragraphs, summary }: HeroProps) => {
       <div id={`tag-0`} className="tag absolute w-full h-[400dvh] pointer-events-none" aria-hidden="true"></div>
       <section ref={containerRef} className="container-grid h-[400vh] mb-64" id="hero">
         <div className="fixed inset-0 container-grid">
+          <NavButton text="Un devis ?" target="tag-3" className="absolute top-2.5 right-2.5" />
           <DomTomDepartement className="col-span-full row-start-1 row-end-2 self-end font-mono text-gray" />
           <hgroup className="absolute top-1/2 translate-y-[-50%] w-full flex flex-col items-center justify-center px-2.5 md:px-20 lg:px-80 z-10">
             <Lottie animationData={logoAnimation} loop={false} className="w-10 h-10" />
