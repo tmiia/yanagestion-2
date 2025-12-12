@@ -44,9 +44,9 @@ const Folder = ({ folder, index }: FolderProps) => {
   
   return (
     <section 
-      className="container-grid p-9! pr-6! pt-20! bg-foreground text-[var(--text-primary)] min-h-[80dvh] sticky mt-20 flex flex-col justify-between font-mono text-xs"
+      className="container-grid p-9! pr-6! pt-20! bg-foreground text-[var(--text-primary)] min-h-[85dvh] md:min-h-[80dvh] sticky mt-20 flex flex-col justify-between font-mono text-xs"
       style={{ 
-        top: `calc(5rem + ${topOffset}px)`,
+        top: `calc(var(--folder-top-base) + ${topOffset}px)`,
         zIndex: index + 1,
         boxShadow: '0 0 4px 0 rgba(93, 93, 93, 0.4)',
       }}
@@ -59,7 +59,7 @@ const Folder = ({ folder, index }: FolderProps) => {
                   <span className="col-span-2 col-start-1 md:col-span-1 md:col-start-1">{titleLeft}</span>
                   <span className="col-span-2 col-start-4 md:col-span-1 md:col-start-2">{titleRight}</span>
                 </h2>
-                <p className="col-span-2 col-start-2 md:col-span-1 md:col-start-3 font-light uppercase">{folder.description}</p>
+                <p className="col-span-3 col-start-2 md:col-span-1 md:col-start-3 font-light uppercase">{folder.description}</p>
             </hgroup>
         </header>
 
@@ -77,7 +77,7 @@ const Folder = ({ folder, index }: FolderProps) => {
             </div>
 
             {folder.addContactForm && 
-            <div className="col-start-1 col-end-6 md:col-start-3 md:col-end-6 h-full flex flex-col gap-y-4">
+            <div className="col-start-1 col-end-6 md:col-start-3 md:col-end-6 h-full flex flex-col gap-y-4 pt-4 md:pt-0">
                 <ContactForm />
             </div>
             }

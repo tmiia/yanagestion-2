@@ -12,6 +12,13 @@
   --dark-gray: rgba(0, 0, 0, 0.5);
   --text-primary: #ffffff;
   --text-secondary: #dedede;
+  --folder-top-base: 5rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --folder-top-base: 3rem;
+  }
 }
 
 @theme inline {
