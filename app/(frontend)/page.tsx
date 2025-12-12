@@ -12,8 +12,9 @@ export default async function Home() {
   const folderData = await client.fetch<SanityDocument[]>(FOLDER_QUERY, {}, options);
 
   const paragraphs = readerData.map((doc: SanityDocument) => doc.paragraphs || []);
-  const summary = folderData.map((doc: SanityDocument) => doc.title || '');
-  const folders = folderData.map((doc: SanityDocument, index: number) => ({
+  const sortedFolderData = [...folderData].sort((a, b) => (a.order || 0) - (b.order || 0));
+  const summary = sortedFolderData.map((doc: SanityDocument) => doc.title || '');
+  const folders = sortedFolderData.map((doc: SanityDocument, index: number) => ({
     index,
     order: doc.order || 0,
     title: doc.title || '',
