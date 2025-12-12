@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface SummaryProps {
   className?: string;
@@ -9,19 +9,46 @@ interface SummaryProps {
 const Summary = ({ className, summary }: SummaryProps) => {
     const [currentActive, setCurrentActive] = useState(0);
 
+    const goTo = (index: number) => {
+        if (index < 1) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+            let target = document.getElementById(`tag-${index}`);
+            if (target) {
+               target.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    };
+
+    const updateCurrentActiveOnScroll = () => {
+        let posY = window.scrollY;
+        let targets = document.querySelectorAll(".tag");
+        targets.forEach((target) => {
+
+            if ((target?.getBoundingClientRect().top + window.pageYOffset - window.innerHeight / 2) <= posY) {
+                setCurrentActive(parseInt(target.id.split("-")[1]));
+            }
+        });
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", updateCurrentActiveOnScroll);
+        return () => window.removeEventListener("scroll", updateCurrentActiveOnScroll);
+    }, []);
+
     return (
         <div className={classNames("flex flex-col w-full overflow-hidden", className)}>
         {summary.map((item, index) => (
-            <a href={index < 1 ? "#hero" : `#folder-${index - 1}`} 
+            <div 
             key={index} 
-            onClick={() => setCurrentActive(index )}
-            className={classNames("flex items-baseline pr-2.5 gap-1 w-full min-w-0", currentActive === index ? "text-dark-gray" : "text-gray")}>
+            onClick={() => goTo(index)}
+            className={classNames("flex items-baseline pr-2.5 gap-1 w-full min-w-0 transition-colors duration-300 cursor-pointer", currentActive === index ? "text-dark-gray" : "text-gray")}>
                 <span className="text-sm font-semibold whitespace-nowrap shrink-0">{item}</span>
                 <span className="flex-1 overflow-hidden text-xs min-w-0 leading-px">
                     {"·".repeat(200)}
                 </span>
                 <span className="text-sm font-semibold shrink-0">{index + 1}</span>
-            </a>
+            </div>
         ))}
         </div>
     );
