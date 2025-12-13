@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useEffect, useState } from "react";
+import useNavigation from "../hooks/useNavigation";
 
 interface SummaryProps {
   className?: string;
@@ -7,29 +8,8 @@ interface SummaryProps {
 }
 
 const Summary = ({ className, summary }: SummaryProps) => {
-    const [currentActive, setCurrentActive] = useState(0);
 
-    const goTo = (index: number) => {
-        if (index < 1) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        } else {
-            let target = document.getElementById(`tag-${index}`);
-            if (target) {
-               target.scrollIntoView({ behavior: "smooth" });
-            }
-        }
-    };
-
-    const updateCurrentActiveOnScroll = () => {
-        let posY = window.scrollY;
-        let targets = document.querySelectorAll(".tag");
-        targets.forEach((target) => {
-
-            if ((target?.getBoundingClientRect().top + window.pageYOffset - window.innerHeight / 2) <= posY) {
-                setCurrentActive(parseInt(target.id.split("-")[1]));
-            }
-        });
-    }
+    const { currentActive, goTo, updateCurrentActiveOnScroll } = useNavigation();
 
     useEffect(() => {
         window.addEventListener("scroll", updateCurrentActiveOnScroll);
