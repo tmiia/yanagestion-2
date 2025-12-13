@@ -13,7 +13,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
       root
       options={{
         lerp: 0.1,
-        duration: 1.2,
+        duration: 3.5,
         smoothWheel: true,
       }}
     >

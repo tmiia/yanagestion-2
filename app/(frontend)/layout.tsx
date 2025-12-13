@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/(frontend)/components/smooth-scroll";
 import { Grid } from "@/(frontend)/utils/grid";
 import { OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
+import { IntroProvider } from "@/(frontend)/contexts/IntroContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,8 +39,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SmoothScroll>
-          <Grid />
-          {children}
+          <IntroProvider>
+            <Grid />
+            {children}
+          </IntroProvider>
         </SmoothScroll>
       </body>
     </html>
