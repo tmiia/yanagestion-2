@@ -22,23 +22,23 @@ const ContactForm = () => {
                 <div className="flex-1 flex flex-col gap-y-6">
                     <div className="flex flex-col gap-y-4">
                         <div className="relative">
-                            <input type="text" id="email" name="email" className="peer border-b border-gray w-full focus:outline-1 focus:outline-gray" />
-                            <label htmlFor="email" className="absolute top-0 left-0 transition-transform duration-300 peer-focus:-translate-y-full">Email</label>
+                            <input type="email" id="email" name="email" placeholder=" " className="peer border-b border-gray w-full focus:outline-1 focus:outline-gray" />
+                            <label htmlFor="email" className="absolute top-0 left-0 transition-transform duration-300 peer-focus:-translate-y-full peer-[:not(:placeholder-shown)]:-translate-y-full">Email</label>
                         </div>
                         <div className="relative">
-                            <input type="text" id="companyName" name="companyName" className="peer border-b border-gray w-full focus:outline-1 focus:outline-gray" />
-                            <label htmlFor="companyName" className="absolute top-0 left-0 transition-transform duration-300 peer-focus:-translate-y-full">Raison sociale</label>
+                            <input type="text" id="companyName" name="companyName" placeholder=" " className="peer border-b border-gray w-full focus:outline-1 focus:outline-gray" />
+                            <label htmlFor="companyName" className="absolute top-0 left-0 transition-transform duration-300 peer-focus:-translate-y-full peer-[:not(:placeholder-shown)]:-translate-y-full">Raison sociale</label>
                         </div>
                         <div className="relative">
-                            <input type="text" id="phone" name="phone" className="peer border-b border-gray w-full focus:outline-1 focus:outline-gray" />
-                            <label htmlFor="phone" className="absolute top-0 left-0 transition-transform duration-300 peer-focus:-translate-y-full">Num. Tel.</label>
+                            <input type="tel" id="phone" name="phone" placeholder=" " className="peer border-b border-gray w-full focus:outline-1 focus:outline-gray" />
+                            <label htmlFor="phone" className="absolute top-0 left-0 transition-transform duration-300 peer-focus:-translate-y-full peer-[:not(:placeholder-shown)]:-translate-y-full">Num. Tel.</label>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex-1 flex flex-col relative gap-y-2">
-                    <textarea id="message" name="message" rows={1} className="peer border-b border-gray focus:outline-1 focus:outline-gray" />
-                    <label htmlFor="message" className="absolute top-0 left-0 transition-transform duration-300 peer-focus:-translate-y-full">Quels sont vos besoins ?</label>
+                    <textarea id="message" name="message" rows={1} placeholder=" " className="peer border-b border-gray focus:outline-1 focus:outline-gray" />
+                    <label htmlFor="message" className="absolute top-0 left-0 transition-transform duration-300 peer-focus:-translate-y-full peer-[:not(:placeholder-shown)]:-translate-y-full">Quels sont vos besoins ?</label>
                 </div>
             </div>
 
